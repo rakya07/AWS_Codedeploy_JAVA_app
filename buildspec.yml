@@ -1,0 +1,21 @@
+Version: 0.2
+Phases:
+ pre_build:
+  commands:
+   - echo generating war package from source code...
+   
+
+ build:
+  commands:
+   - mvn clean package
+   - echo building package done ....
+   
+ post_build:
+  commands:
+   - echo pushing war package to S3 for storing
+
+artifacts:
+  files:
+    - '**/*.war'
+    - 'appspec.yml'
+    - 'scripts/**' 
